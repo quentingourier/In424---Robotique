@@ -13,11 +13,6 @@ void setup() {
   myServo.attach(3); // Defines on which pin is the servo motor attached
 }
 void loop() {
-  
-}
-// Function for calculating the distance measured by the Ultrasonic sensor
-int calculateDistance(){ 
-  
   digitalWrite(trigPin, LOW); 
   delayMicroseconds(2);
   // Sets the trigPin on HIGH state for 10 micro seconds
@@ -25,6 +20,8 @@ int calculateDistance(){
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
   duration = pulseIn(echoPin, HIGH); // Reads the echoPin, returns the sound wave travel time in microseconds
+  Serial.println("t = ", duration);
   distance= duration*0.034/2;
-  return distance;
+  Serial.println("d = ", distance);
+  
 }
